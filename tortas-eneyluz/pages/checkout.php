@@ -1,8 +1,8 @@
 <?php
 //conectar a la base de datos
-$servername = "mariadb";
-$username = "testuser";
-$password = "testpassword";
+$servername = "localhost";
+$username = "root";
+$password = "";
 $dbname = "testdb";
 $conexion = new mysqli($servername, $username, $password, $dbname);
 
@@ -28,11 +28,11 @@ if (!$conexion) {
 
 // echo '<h1>' . $filas . ' Resultados </h1>';
 if ($resultado) {
-  header("Location:/index.html");
+  header("Location:/tortas-eneyluz/");
   die();
 } else {
   echo '<h1> Error en la base de datos</h1>';
-  echo '<a href="/pages/admin.html">Volver</a>';
+  echo '<a href="/tortas-eneyluz/pages/steak.html">Volver</a>';
 }
 mysqli_close($conexion);
 ?>

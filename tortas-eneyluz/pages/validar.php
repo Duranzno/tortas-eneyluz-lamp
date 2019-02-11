@@ -1,8 +1,13 @@
+
 <?php
-//conectar a la base de datos
-$servername = "mariadb";
-$username = "testuser";
-$password = "testpassword";
+//conectar a la base de datos y colocar el nombre de usuario y contraseña hecho en phpmyadmin
+//yo uso por defecto los de wamp y el servername
+//crear base de datos testdb	
+//en testdb crear tabla usuarios y llenar con usuario y password
+
+$servername = "localhost";
+$username = "root";
+$password = "";
 $dbname = "testdb";
 $conexion = new mysqli($servername, $username, $password, $dbname);
 
@@ -25,11 +30,11 @@ if (!$conexion) {
 // echo '<h1>' . $filas . ' Resultados </h1>';
 
 if ($filas > 0) {
-  header("Location:/pages/admin.php");
+  header("Location:tortas-eneyluz/pages/admin.php");
   die();
 } else {
   echo '<h1> Error en la autenticación</h1>';
-  echo '<a href="/pages/login.html">Volver</a>';
+  echo '<a href="tortas-eneyluz/pages/login.html">Volver</a>';
 }
 mysqli_free_result($resultado);
 mysqli_close($conexion);

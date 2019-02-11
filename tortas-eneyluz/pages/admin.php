@@ -24,9 +24,9 @@
     <th scope="row" class='thead-dark'>Fecha</th>
   </tr>
 <?php
-$servername = "mariadb";
-$username = "testuser";
-$password = "testpassword";
+$servername = "localhost";
+$username = "root";
+$password = "";
 $dbname = "testdb";
 $conn = new mysqli($servername, $username, $password, $dbname);
   // Check connection
