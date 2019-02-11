@@ -1,0 +1,89 @@
+<HTML>
+
+<HEAD>
+   <TITLE>Formulario v1.2</TITLE>
+</HEAD>
+
+<BODY>
+
+   <H1>Formulario de recolecci�n de datos para realizar un pedido</H1>
+   <form action="cualquierberga.php" method="get">
+
+      <fieldset>
+         <legend><b>Datos personales</b></legend>
+         <P>Con esta informaci�n lo tendremos en nuestra base de datos
+            como cliente y tambi�n nos facilitar� el env�o de su pedido.<P>
+               <HR>
+
+               <p>Nombre: <input type="text" name="nombre" size="20"></p>
+               <p>Apellido: <input type="text" name="apellido" size="20"></p>
+               <p>C�dula de identidad: <input type="text" name="cedula" size="8" maxlenght="8"></p>
+               <p>N�mero de contacto: <input type="tel" name="telefono" size="12" maxlenght="12"></p>
+               <p>Correo electr�nico: <input type="email" name="correo" size="20"></p>
+               <p>Direcci�n de vivienda: <input type="text" name="direccion" size="40"></p>
+      </fieldset>
+      <br>
+
+      <fieldset>
+         <legend><b>Especificaciones del pedido</b></legend>
+         <P>Aqu� puede definir las caracter�sticas de su pedido, fecha y hora de entrega,
+            si es un regalo, etc.<P>
+               <HR>
+               <p>Tipo de pedido: <input type="radio" name="tipodepedido" value="1"> Torta simple
+                  <input type="radio" name="tipodepedido" value="2"> Mini torta
+                  <input type="radio" name="tipodepedido" value="3"> Raci�n </p>
+               <p>Tama�o de la torta: <input type="radio" name="tamano" value="1"> 500 g
+                  <input type="radio" name="tamano" value="2"> 1 Kg
+                  <input type="radio" name="tamano" value="3"> 2 Kg
+                  <input type="radio" name="tamano" value="4"> 3 Kg</p>
+               <p>Sabor de la torta:
+                  <SELECT class="custom-select" NAME="sabor" SIZE="1">
+                     <OPTION VALUE="b">Burrera</OPTION>
+                     <OPTION VALUE="v">Vainilla</OPTION>
+                     <OPTION VALUE="c">Chocolate</OPTION>
+                     <OPTION VALUE="c2">Doble chocolate</OPTION>
+                     <OPTION VALUE="c3">Triple chocolate</OPTION>
+                     <OPTION VALUE="3l">Tres leches</OPTION>
+                     <OPTION VALUE="rv">Red velvet</OPTION>
+                     <OPTION VALUE="o">Domin�</OPTION>
+                     <OPTION VALUE="b">Brownie</OPTION>
+                     <OPTION VALUE="bw">Brownie con weed</OPTION>
+                  </SELECT></p>
+               <p>Topping:
+                  <SELECT class="custom-select" NAME="topping" SIZE="1">
+                     <OPTION VALUE="V">Vainilla</OPTION>
+                     <OPTION VALUE="C">Chocolate</OPTION>
+                     <OPTION VALUE="A">Arequipe</OPTION>
+                     <OPTION VALUE="CP">Crema pastelera</OPTION>
+                     <OPTION VALUE="LC">Leche condensada</OPTION>
+                     <OPTION VALUE="W">Weed</OPTION>
+                  </SELECT></p>
+               <p>Tipo de caja para la entrega: <input type="checkbox" name="caja" value="1"> Normal
+                  <input type="checkbox" name="caja" value="2"> Especial </p>
+               <p>�Es �sto un regalo?: <input type="checkbox" name="caja" value="si">S�
+                  <input type="checkbox" name="caja" value="no">No </p>
+               <p>Fecha de entrega: <input type="date" name="fecha" size="20"></p>
+               <p>Hora de entrega: <input type="time" name="hora" size="20"></p>
+               <p>Comentarios adicionales sobre el pedido:</p>
+               <TEXTAREA COLS=50 ROWS=7 NAME="Texto">
+</TEXTAREA>
+               <br><br>
+      </fieldset>
+      <br>
+
+      <fieldset>
+         <legend><b>Feedback Box</b></legend>
+         <p>En pro de ofrecer un mejor servicio, aqu� puede escribir
+            todas sus sugerencias.</p>
+         <HR><br>
+         <TEXTAREA COLS=50 ROWS=7 NAME="Texto">
+</TEXTAREA>
+         <br><br>
+      </fieldset>
+      <br>
+      <INPUT TYPE="submit"><INPUT TYPE="Reset">
+   </form>
+
+</BODY>
+
+</HTML>

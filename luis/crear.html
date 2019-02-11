@@ -1,0 +1,86 @@
+<html>
+<HEAD>
+	<TITLE>Crear cuenta</TITLE>
+	<style>
+	
+h1, h2 {
+			text-align: center;
+		}
+				ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #333;
+		}
+
+	li {
+		float: left;
+		}
+
+	li a {
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		}
+
+	li a:hover {
+		background-color:#111;
+		}
+		
+	.active {
+    background-color: #9F81F7;
+	}
+	
+	body {
+		font-family:arial;
+		margin: 0;
+		}
+	.button {
+    background-color: #9F81F7; 
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+	transition-duration: 0.4s;
+	}
+	
+	.button2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+	background-color: #380B61;
+	}
+</style>
+</HEAD>
+<BODY background="http://citywallpaperhd.com/download/395-noche-en-paris-fondo-de-pantalla.jpg">
+<ul>
+	<li><a href="inicio.html">Home</a></li>
+	<li><a href="iniciar.html">Iniciar Sesion</a></li>
+	<li><a class="active" href="crear.html">Registrar</a></li>
+</ul>
+	<center><H2>Llene los siguientes campos</H2></center>
+<form action="reg.php" method="POST">
+	<center><input type="text" maxlenght="10" name="cedula" placeholder="Cedula"></center><br>
+	<center><input type="text" maxlenght="20" name="nombre" placeholder="Nombre"></center><br>
+	<center><input type="text" maxlenght="20" name="apellido" placeholder="Apellido"></center><br>
+	
+		
+	<center>
+	<input type="text" maxlenght="11" name="telefono" placeholder="Telefono"><br><br>
+	Sexo:
+	<INPUT TYPE="radio" NAME="sexo" VALUE="hombre"> Hombre
+	<INPUT TYPE="radio" NAME="sexo" VALUE="mujer">Mujer<br><br>
+	<INPUT TYPE="password" NAME="pass" placeholder="Password"> <br><br>
+	<INPUT TYPE="password" NAME="rpass" placeholder="Repetir Password"><br><br>
+	<INPUT class="button button2"TYPE="submit">
+	<INPUT class="button button2" TYPE="Reset">
+	</center>
+</form>
+</BODY>
+</html>

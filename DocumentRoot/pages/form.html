@@ -1,0 +1,170 @@
+<HTML> 
+   <HEAD> 
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="../../public/stylesheets/bootstrap.css">
+      <TITLE>Formulario v1.2</TITLE> 
+   </HEAD> 
+<BODY>
+   <H1>Formulario de recoleccion de datos para realizar un pedido</H1> 
+   <form action="cualquierberga.php" method="get" class="form-inline align-items-center">
+
+      <fieldset class="form-group">
+      <legend><b>Datos personales</b></legend> 
+      <P>Con esta informacion lo tendremos en nuestra base de datos 
+      como cliente y tambien nos facilitara el envio de su pedido.<P>
+      <HR>
+      <div class="form-row align-items-center">
+         <div class="col-auto">
+            <label class="sr-only" for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" size="20" 
+               class="form-control mb-2" placeholder="Nombre">
+         </div>
+         <div class="col-auto">
+            <label class="sr-only" for="apellido">Apellido</label>
+            <input type="text" name="apellido" id="apellido" size="20" 
+               class="form-control mb-2" placeholder="Apellido"> 
+         </div>
+         <div class="col-auto">
+            <label class="sr-only"  for="cedula">Cedula de Identidad</label>
+            <input type="text" name="cedula" id="cedula" size="8" maxlenght="8" 
+               class="form-control mb-2" placeholder="Cedula">
+         </div>
+      </div>
+      <div class="form-row align-items-center">
+         <div class="col-auto">
+            <label class="sr-only" for="tlf">Telefono</label>
+            <input type="tel" name="telefono" size="12" id="telefono" maxlenght="12" 
+               class="form-control mb-2" placeholder="Telefono">
+         </div>
+         <div class="col-auto">
+            <label class="sr-only" for="correo">Correo</label>
+            <input type="email" name="correo" id="correo" size="20" 
+               class="form-control mb-2" placeholder="Correo">
+         </div>
+         <div class="col-auto">
+            <label class="sr-only" for="direccion">Direccion</label>
+            <input type="text" name="direccion" id="direccion" size="40" 
+               class="form-control mb-2" placeholder="Direccion">
+         </div>
+      </div>
+      </fieldset>
+      <legend><b>Especificaciones del pedido</b></legend>
+      <P>Aqui puede definir las caracteristicas de su pedido, fecha y hora de entrega, si es un regalo, etc.</P>
+      <HR>
+<!--       
+      <div class="row">
+        <label>Tipo de pedido:</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" name="tipodepedido" type="radio" value="1" id="simple">
+            <label class="form-check-label" for="simple">Torta simple</label>
+          </div>
+        
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" name="tipodepedido" type="radio" value="2" id="mini">
+            <label class="form-check-label" for="mini">Mini Torta</label>
+          </div>
+
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" name="tipodepedido" type="radio" value="1" id="racion">
+            <label class="form-check-label" for="racion">Raci�n</label>
+          </div>
+      </div> -->
+           <!--  <div class="col-md-6">
+            <label>Tama�o de la torta:</label>
+               <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="tamano" type="radio" value="1" id="t500">
+                 <label class="form-check-label" for="t500">500 g</label>
+               </div>
+               
+               <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="tamano" type="radio" value="2" id="t1000">
+                 <label class="form-check-label" for="t1000">1 kg</label>
+               </div>
+
+
+               <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="tamano" type="radio" value="3" id="t2000">
+                 <label class="form-check-label" for="t2000">2 kg</label>
+               </div>
+
+               <div class="form-check form-check-inline">
+                 <input class="form-check-input" name="tamano" type="radio" value="4" id="t3000">
+                 <label class="form-check-label" for="t3000">3 kg</label>
+               </div>
+            </div>
+         </form-row>
+      <p>Sabor de la torta:
+      <SELECT  class="custom-select my-1 mr-sm-2 col-md-2" NAME="sabor" SIZE="1"> 
+         <OPTION VALUE="b">Burrera</OPTION> 
+         <OPTION VALUE="v">Vainilla</OPTION> 
+         <OPTION VALUE="c">Chocolate</OPTION> 
+         <OPTION VALUE="c2">Doble chocolate</OPTION> 
+         <OPTION VALUE="c3">Triple chocolate</OPTION> 
+         <OPTION VALUE="3l">Tres leches</OPTION> 
+         <OPTION VALUE="rv">Red velvet</OPTION> 
+         <OPTION VALUE="o">Domin�</OPTION> 
+         <OPTION VALUE="b">Brownie</OPTION> 
+         <OPTION VALUE="bw">Brownie con weed</OPTION> 
+      </SELECT>
+      <p>Topping:
+      <SELECT  class="custom-select my-1 mr-sm-2 col-md-2" NAME="topping" SIZE="1"> 
+         <OPTION VALUE="V">Vainilla</OPTION> 
+         <OPTION VALUE="C">Chocolate</OPTION> 
+         <OPTION VALUE="A">Arequipe</OPTION> 
+         <OPTION VALUE="CP">Crema pastelera</OPTION> 
+         <OPTION VALUE="LC">Leche condensada</OPTION>
+         <OPTION VALUE="W">Weed</OPTION> 
+      </SELECT> 
+      <p>Tipo de caja para la entrega:</p>
+
+<input
+ type="checkbox" name="caja" value="1"> Normal
+     </p>
+
+<input
+ type="checkbox" name="caja" value="2"> Especial 
+      <p>�Es �sto un regalo?:</p>
+
+<input
+ type="checkbox" name="caja" value="si">S�
+     </p>
+
+<input
+ type="checkbox" name="caja" value="no">No 
+      <p>Fecha de entrega:</p>
+
+<input
+ type="date" name="fecha" size="20">
+      <p>Hora de entrega:</p>
+
+<input
+ type="time" name="hora" size="20">
+      <p>Comentarios adicionales sobre el pedido:
+      <TEXTAREA COLS=50 ROWS=7 NAME="Texto"> 
+      </TEXTAREA>
+      <br><br>
+      </fieldset>
+      <br>
+
+      <fieldset class="form-group">
+      <legend><b>Feedback Box</b></legend>
+      <p>En pro de ofrecer un mejor servicio, aqu� puede escribir 
+      todas sus sugerencias.
+      <HR><br>
+      <TEXTAREA COLS=50 ROWS=7 NAME="Texto"> 
+      </TEXTAREA> 
+      <br><br>
+      </fieldset>
+      <br>  -->
+    <div class="form-row">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="reset" class="btn btn-primary">Reset</button>
+    </div>
+   </form>
+      <script 
+        src="../js/bootstrap.bundle.min.js">
+      </script>
+   </BODY> 
+</HTML> 
