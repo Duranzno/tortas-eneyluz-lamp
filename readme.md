@@ -8,4 +8,6 @@ Aqui adentro hacer dos tablas.
 	1. "nombre" de tipo TEXT
 	2. "pedido" de tipo TEXT
 	3. "fecha" de tipo DATE 
+
 ----
+Al momento de acceder ir a localhost/tortas-eneyluz
