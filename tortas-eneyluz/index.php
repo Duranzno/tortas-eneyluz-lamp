@@ -83,8 +83,8 @@ http://www.tooplate.com/view/2083-steak-house
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#top" class="smoothScroll">Inicio</a></li>
           <li><a href="#feature" class="smoothScroll">Nosotros</a></li>
-          <li><a href="pages/checkout.html" class="smoothScroll">Comprar</a></li>
-          <li><a href="pages/login.html" class="smoothScroll">Admin</a></li>
+          <li><a href="pages/pedido.php" class="smoothScroll">Comprar</a></li>
+          <li><a href="pages/login.php" class="smoothScroll">Admin</a></li>
         </ul>
       </div>
 

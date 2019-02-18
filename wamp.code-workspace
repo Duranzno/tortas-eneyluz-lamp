@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+  ],
+  "settings": {
+    "php.suggest.basic": true,
+    "php.validate.executablePath": "C:\\wampes\\bin\\php\\php5.4.3",
+  }
+}

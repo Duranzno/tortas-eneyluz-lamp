@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Empresa Repostera</title>
   <!-- Bootstrap core CSS -->
-  <link href="/stylesheets/bootstrap.css" rel="stylesheet" crossorigin="anonymous">
-  <link rel="stylesheet" href="/stylesheets/bootstrap-datepicker3.min.css">
+  <link href="../stylesheets/bootstrap.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" href="../stylesheets/bootstrap-datepicker3.min.css">
 </head>
 
 <body class="bg-light">
@@ -70,7 +70,7 @@
       <div class="col-md-12 order-md-1">
         <h4 class="mb-3">Datos Personales</h4>
 
-        <form class="needs-validation" novalidate="" action="/tortas-eneyluz/pages/checkout.php" method="post">
+        <form class="needs-validation" novalidate="" action="/tortas-eneyluz/pages/pedido.php" method="post">
           <!-- * DATOS DE USUARIO -->
           <div class="row">
 
