@@ -1,0 +1,1 @@
+SELECT column_type FROM information_schema.COLUMNS WHERE TABLE_NAME = 'pedidos' AND COLUMN_NAME = 'tipo'

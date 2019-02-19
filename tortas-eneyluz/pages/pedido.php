@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+<?php
+  function genericOptions($col_name){
+  $c = new mysqli("localhost", "root", "", "testdb");
+  if(!$c){die("No se pudo conectar");}
+  else{
+  $r= $c->query("SELECT id,nombre FROM " . $col_name);
+  while($fila=$r->fetch_row()){
+  echo "<OPTION VALUE='" . $fila['0'] . "'>".  $fila['1'] . "</OPTION>";
+  }
+  mysql_close($c);}
+}
+?>
 <html lang="en">
 
 <head>
@@ -18,59 +30,10 @@
     </div>
 
     <div class="row">
-      <!-- <div class="col-md-4 order-md-2 mb-4">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-muted">Your </span>
-          <span class="badge badge-secondary badge-pill">3</span>
-        </h4>
-        <ul class="list-group mb-3">
-          <li class="list-group-item d-flex justify-content-between lh-condensed">
-            <div>
-              <h6 class="my-0">Product name</h6>
-              <small class="text-muted">Brief description</small>
-            </div>
-            <span class="text-muted">$12</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-condensed">
-            <div>
-              <h6 class="my-0">Second product</h6>
-              <small class="text-muted">Brief description</small>
-            </div>
-            <span class="text-muted">$8</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-condensed">
-            <div>
-              <h6 class="my-0">Third item</h6>
-              <small class="text-muted">Brief description</small>
-            </div>
-            <span class="text-muted">$5</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between bg-light">
-            <div class="text-success">
-              <h6 class="my-0">Promo code</h6>
-              <small>EXAMPLECODE</small>
-            </div>
-            <span class="text-success">-$5</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Total (USD)</span>
-            <strong>$20</strong>
-          </li>
-        </ul>
-
-        <form class="card p-2">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Promo code">
-            <div class="input-group-append">
-              <button type="submit" class="btn btn-secondary">Redeem</button>
-            </div>
-          </div>
-        </form>
-      </div> -->
       <div class="col-md-12 order-md-1">
         <h4 class="mb-3">Datos Personales</h4>
 
-        <form class="needs-validation" novalidate="" action="/tortas-eneyluz/pages/pedido.php" method="post">
+        <form class="needs-validation" novalidate="" action="/tortas-eneyluz/pages/pedido_backend.php" method="post">
           <!-- * DATOS DE USUARIO -->
           <div class="row">
 
@@ -82,7 +45,7 @@
             </div>
             <div class="col-md-6 mb-3">
               <label for="lastName">Apellido</label>
-              <input type="text" class="form-control" id="apellido" placeholder="" value="" required="">
+              <input type="text" class="form-control" name="apellido" id="apellido" placeholder="" value="" required="">
               <div class="invalid-feedback">
                 Apellido necesario
               </div>
@@ -94,7 +57,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">V</span>
               </div>
-              <input type="text" class="form-control" id="cedula" placeholder="##.###.###" required="">
+              <input type="text" class="form-control" name="cedula" id="cedula" placeholder="##.###.###" required="">
               <div class="invalid-feedback" style="width: 100%;">
                 Cedula es requerida.
               </div>
@@ -102,99 +65,68 @@
           </div>
           <div class="mb-3">
             <label for="email">Correo Electronico</label>
-            <input type="email" class="form-control" id="email" placeholder="tu@ejemplo.com">
+            <input type="email" class="form-control" id="email"  name="correo" placeholder="tu@ejemplo.com">
             <div class="invalid-feedback">
               Por Favor introduzca un correo electronico correcto</div>
           </div>
           <div class="mb-3">
             <label for="direccion">Direccion</label>
-            <input type="text" class="form-control" id="direccion" placeholder="Casa cual, Calle tal, Avenida cual. "
+            <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Casa cual, Calle tal, Avenida cual. "
               required="">
             <div class="invalid-feedback">
               Por favor introduzca la direccion de envio </div>
           </div>
           <div class="mb-3">
             <label for="tlf">Telefono<span class="text-muted">(Opcional)</span></label>
-            <input type="text" class="form-control" id="address2" placeholder="Movil o Fijo ">
+            <input type="text" class="form-control" id="address2" name="tlf" placeholder="Movil o Fijo ">
           </div>
           <hr class="mb-4">
           <!-- * Especificaciones del pedido -->
           <h4 class="mb-3">Especificaciones del pedido</h4>
           <P>Aqui puede definir las caracteristicas de su pedido, fecha y hora de entrega, si es un regalo, etc.<P>
-              <div class="d-block my-3">
-                <p>Tipo de pedido:</p>
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input id="simple" name="tipodepedido" type="radio" class="custom-control-input" checked="" required="">
-                  <label class="custom-control-label" for="simple">Torta Simple</label>
+              
+              
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <p>Tipo de pedido:
+                    <SELECT class="custom-select" NAME="tipo" SIZE="1">
+                      <?php genericOptions("tipo")?>
+                    </SELECT></p>
                 </div>
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input id="mini" name="tipodepedido" type="radio" class="custom-control-input" required="">
-                  <label class="custom-control-label" for="mini">Mini torta</label>
-                </div>
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input id="racion" name="tipodepedido" type="radio" class="custom-control-input" required="">
-                  <label class="custom-control-label" for="racion">Racion</label>
-                </div>
-              </div>
-              <div class="d-block my-3">
-                <p>Tamano de la torta:</p>
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input id="500" name="tamano" type="radio" class="custom-control-input" checked="" required="">
-                  <label class="custom-control-label" for="500">500 g</label>
-                </div>
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input id="1kg" name="tamano" type="radio" class="custom-control-input" required="">
-                  <label class="custom-control-label" for="1kg">1 KG torta</label>
-                </div>
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input id="2kg" name="tamano" type="radio" class="custom-control-input" required="">
-                  <label class="custom-control-label" for="2kg">2 Kg</label>
-                </div>
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input id="3kg" name="tamano" type="radio" class="custom-control-input" required="">
-                  <label class="custom-control-label" for="3kg">3 Kg</label>
+                <div class="col-md-6 mb-3">
+                  <p>Tamano de la torta:
+                    <SELECT class="custom-select" NAME="tamano" SIZE="1">
+                      <?php genericOptions("tamano")?>
+                    </SELECT></p>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-6 mb-3">
                   <p>Sabor de la torta:
-                    <SELECT class="custom-select" NAME="pedido" SIZE="1">
-                      <OPTION VALUE="Burrera">Burrera</OPTION>
-                      <OPTION VALUE="Vainilla">Vainilla</OPTION>
-                      <OPTION VALUE="Chocolate">Chocolate</OPTION>
-                      <OPTION VALUE="Doble chocolate">Doble chocolate</OPTION>
-                      <OPTION VALUE="Triple chocolate">Triple chocolate</OPTION>
-                      <OPTION VALUE="Tres leches">Tres leches</OPTION>
-                      <OPTION VALUE="Red velvet">Red velvet</OPTION>
-                      <OPTION VALUE="Domino">Domino</OPTION>
-                      <OPTION VALUE="Brownie">Brownie</OPTION>
-                      <OPTION VALUE="Brownie con weed">Brownie con weed</OPTION>
+                    <SELECT class="custom-select" NAME="sabor" SIZE="1">
+                      <?php genericOptions("sabor")?>
                     </SELECT></p>
                 </div>
                 <div class="col-md-6 mb-3">
                   <p>Topping:
                     <SELECT class="custom-select" NAME="topping" SIZE="1">
-                      <OPTION VALUE="Vainilla">Vainilla</OPTION>
-                      <OPTION VALUE="Chocolate">Chocolate</OPTION>
-                      <OPTION VALUE="Arequipe">Arequipe</OPTION>
-                      <OPTION VALUE="Crema pastelera">Crema pastelera</OPTION>
-                      <OPTION VALUE="Leche condensada">Leche condensada</OPTION>
-                      <OPTION VALUE="Weed">Weed</OPTION>
+                      <?php genericOptions("topping")?>
                     </SELECT></p>
                 </div>
               </div>
+
               <div class="row">
 
                 <div class="col-md-3 mb-3">
                   <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="regalo">
+                    <input type="checkbox" class="custom-control-input" value="esRegalo" name="esRegalo" id="regalo">
                     <label class="custom-control-label" for="regalo">Es un Regalo?</label>
                   </div>
                 </div>
                 <div class="col-md-3 mb-3">
                   <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="especial">
+                    <input type="checkbox" class="custom-control-input" value="tieneCajaEspecial" name="tieneCajaEspecial" id="especial">
                     <label class="custom-control-label" for="especial">Caja especial?</label>
                   </div>
                 </div>
@@ -204,15 +136,11 @@
                   <p>Fecha de entrega:</p>
                   <input type="text" class="form-control" id="datepicker" name="fecha">
                 </div>
-                <div class="col-md-6 mb-6">
-                  <p>Hora de entrega:</p>
-                  <input type="time" class="form-control" id="datepicker">
-                </div>
               </div>
               <div class="row">
                 <div class="col-md-12 mb-12">
                   <p>Comentarios adicionales sobre el pedido:</p>
-                  <TEXTAREA class="form-control" NAME="Texto"></TEXTAREA>
+                  <TEXTAREA class="form-control" NAME="comentarios"></TEXTAREA>
                 </div>
               </div>
               <hr class="mb-4">
