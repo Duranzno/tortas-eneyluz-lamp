@@ -1,0 +1,92 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><help_text>Note..illablueolate
+Arequipe
+Crema Pastelera 
+Leche Condensada
+Weedción Condensada
+Weedte
+ArequiBurrera 
+Vainilla
+Chocolate
+Doble Chocolate
+Triple Chocolate
+Tres Leches
+Red Velvet
+Domino
+Brownie
+Brownie con Weedpe
+Crema Pastelera 
+Leche Condensada
+Weed</help_text><element><id>UMLClass</id><coordinates><x>90</x><y>220</y><w>210</w><h>150</h></coordinates><panel_attributes>Cliente Web
+--
+-id: String {id}
+-nombre: String
+-apellido:String
+-cedula:String
+-direccion: String
+-tlf: String
+-correo:String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>360</y><w>50</w><h>100</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1..n</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>80</x><y>440</y><w>220</w><h>170</h></coordinates><panel_attributes>Pedido
+--
+-id: String {id}
+-tipoId:int
+-tamanoId:int
+-saborId:int
+-toppingId:int
+-tieneCajaEspecial:boolean
+-esRegalo:boolean
+-entrega:Date
+-commentarios:String {optional}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>530</x><y>160</y><w>120</w><h>70</h></coordinates><panel_attributes>
+Torta Simple
+Mini torta
+Ración
+bg=white</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>530</x><y>430</y><w>120</w><h>190</h></coordinates><panel_attributes>Vainilla
+Burrera 
+Vainilla
+Chocolate
+Doble Chocolate
+Triple Chocolate
+Tres Leches
+Red Velvet
+Domino
+Brownie
+Brownie con Weed
+bg=white</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>530</x><y>240</y><w>120</w><h>70</h></coordinates><panel_attributes>500g
+1Kg
+2Kg
+3Kg
+bg=white</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>180</y><w>70</w><h>60</h></coordinates><panel_attributes>Tipo
+--
+id
+nombre</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>260</y><w>70</w><h>60</h></coordinates><panel_attributes>Tamano
+--
+id
+nombre</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>390</y><w>70</w><h>60</h></coordinates><panel_attributes>Sabor
+--
+id
+nombre</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>530</y><w>70</w><h>60</h></coordinates><panel_attributes>Topping
+--
+id
+nombre</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>160</x><y>120</y><w>80</w><h>70</h></coordinates><panel_attributes>Usuario
+--
+-usuario
+-password
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>530</x><y>320</y><w>120</w><h>100</h></coordinates><panel_attributes>Vainilla
+Chocolate
+Arequipe
+Crema Pastelera 
+Leche Condensada
+Weed
+bg=white</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>440</y><w>130</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;100;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>530</y><w>130</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>430</x><y>390</y><w>120</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;100;10</additional_attributes></element><element><id>Relation</id><coordinates><x>430</x><y>240</y><w>120</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;30;100;10</additional_attributes></element><element><id>Relation</id><coordinates><x>430</x><y>160</y><w>120</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;30;100;10</additional_attributes></element><element><id>Relation</id><coordinates><x>290</x><y>180</y><w>100</w><h>330</h></coordinates><panel_attributes>lt=-
+m1=0..n
+m2=0..1
+</panel_attributes><additional_attributes>10;300;30;300;30;10;80;10</additional_attributes></element><element><id>Relation</id><coordinates><x>290</x><y>270</y><w>100</w><h>250</h></coordinates><panel_attributes>lt=-
+m1=0..n
+m2=0..1
+</panel_attributes><additional_attributes>10;220;40;220;40;10;80;10</additional_attributes></element><element><id>Relation</id><coordinates><x>290</x><y>390</y><w>100</w><h>160</h></coordinates><panel_attributes>lt=-
+m1=0..n
+m2=0..1
+</panel_attributes><additional_attributes>10;130;50;130;50;10;80;10</additional_attributes></element><element><id>Relation</id><coordinates><x>290</x><y>520</y><w>90</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=0..n
+m2=0..1
+</panel_attributes><additional_attributes>10;10;60;10;60;20;70;20</additional_attributes></element></diagram>
