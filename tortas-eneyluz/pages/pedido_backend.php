@@ -71,7 +71,7 @@ function pedidoSql(){
       " . $req_tieneCajaEspecial ." ,
       " . $req_esRegalo ." ,
       " . $req_entrega ." ,
-      '" . $req_comentarios ."' ,
+      " . $req_comentarios ." ,
       " . $req_cliente
     ." );";
 }

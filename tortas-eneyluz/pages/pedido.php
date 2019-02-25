@@ -1,7 +1,37 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "testdb";
+$conn = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+
+$sql = "SELECT *  FROM clientes WHERE cedula=" . $req_cedula;
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+  $readonly="readonly";
+    while ($row = $result->fetch_assoc()) {
+    $nombre= $row["nombre"];
+    $apellido= $row["apellido"];
+    $direccion= $row["direccion"];
+    $tlf= $row["tlf"];
+    $correo= $row["correo"];
+  }
+} else {
+}
+
+$conn->close();
+?>
 <!DOCTYPE html>
 <?php
   function genericOptions($col_name){
-  $c = new mysqli("localhost", "root", "", "testdb");
+  $c = new mysqli("localhost", "root", "", "testdb","","");
   if(!$c){die("No se pudo conectar");}
   else{
   $r= $c->query("SELECT id,nombre FROM " . $col_name);
@@ -28,59 +58,10 @@
     <div class="py-5 text-center">
       <h2>Realizar Compra</h2>
     </div>
+    <form class="needs-validation" novalidate="" action="/tortas-eneyluz/pages/pedido_backend.php" method="post">
 
     <div class="row">
       <div class="col-md-12 order-md-1">
-        <h4 class="mb-3">Datos Personales</h4>
-
-        <form class="needs-validation" novalidate="" action="/tortas-eneyluz/pages/pedido_backend.php" method="post">
-          <!-- * DATOS DE USUARIO -->
-          <div class="row">
-
-            <div class="col-md-6 mb-3">
-              <label for="firstName">Nombre</label>
-              <input type="text" class="form-control" name="nombre" id="nombre" placeholder="" value="" required="">
-              <div class="invalid-feedback">Primer Nombre necesario
-              </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="lastName">Apellido</label>
-              <input type="text" class="form-control" name="apellido" id="apellido" placeholder="" value="" required="">
-              <div class="invalid-feedback">
-                Apellido necesario
-              </div>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="cedula">Cedula de Identidad</label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">V</span>
-              </div>
-              <input type="text" class="form-control" name="cedula" id="cedula" placeholder="##.###.###" required="">
-              <div class="invalid-feedback" style="width: 100%;">
-                Cedula es requerida.
-              </div>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="email">Correo Electronico</label>
-            <input type="email" class="form-control" id="email"  name="correo" placeholder="tu@ejemplo.com">
-            <div class="invalid-feedback">
-              Por Favor introduzca un correo electronico correcto</div>
-          </div>
-          <div class="mb-3">
-            <label for="direccion">Direccion</label>
-            <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Casa cual, Calle tal, Avenida cual. "
-              required="">
-            <div class="invalid-feedback">
-              Por favor introduzca la direccion de envio </div>
-          </div>
-          <div class="mb-3">
-            <label for="tlf">Telefono<span class="text-muted">(Opcional)</span></label>
-            <input type="text" class="form-control" id="address2" name="tlf" placeholder="Movil o Fijo ">
-          </div>
-          <hr class="mb-4">
           <!-- * Especificaciones del pedido -->
           <h4 class="mb-3">Especificaciones del pedido</h4>
           <P>Aqui puede definir las caracteristicas de su pedido, fecha y hora de entrega, si es un regalo, etc.<P>
@@ -145,9 +126,9 @@
               </div>
               <hr class="mb-4">
               <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
-        </form>
       </div>
     </div>
+    </form>
 
     <footer class="my-5 pt-5 text-muted text-center text-small">
       <p class="mb-1">© 2017-2018 Company Name</p>
