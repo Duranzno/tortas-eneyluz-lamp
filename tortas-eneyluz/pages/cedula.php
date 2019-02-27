@@ -23,7 +23,7 @@
           <!-- * DATOS DE USUARIO -->
           <div class="row">
             <div class="col-md-12 mb-12">
-              <p>Cedula Usuario</p>
+              <p>Cedula</p>
               <input type="text" class="form-control" name="cedula">
             </div>
           </div>

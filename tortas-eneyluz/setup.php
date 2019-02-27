@@ -133,6 +133,14 @@ function fillDb($conn){
       ('1Kg'),
       ('2Kg'),
       ('3Kg');";
+
+  $sql.="INSERT INTO  clientes (
+        nombre ,apellido ,cedula ,direccion ,tlf ,correo
+        )
+        VALUES (
+        'Alejandro' ,'Duran' ,1 ,'Villa Guayana' ,'04265919060' ,'aledurax@gmail.com'
+        );";
+  
   if ($conn->multi_query($sql) === TRUE) {
     echo "Se guardaron los datos successfully";
   } else {

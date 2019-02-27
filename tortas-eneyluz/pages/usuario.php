@@ -1,13 +1,7 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "testdb";
-$conn = new mysqli($servername, $username, $password, $dbname);
-  // Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+$conn = new mysqli("localhost", "root", "", "testdb");
+if ($conn->connect_error) {die("Connection failed: " . $conn->connect_error);}
+
 $req_cedula=$_POST['cedula'];
 $nombre="";
 $apellido="";
@@ -16,12 +10,13 @@ $direccion="";
 $tlf="";
 $correo="";
 $readonly="";
+$clienteId="";
+    
 
 $sql = "SELECT *  FROM clientes WHERE cedula=" . $req_cedula;
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    // output data of each row
   $readonly="readonly";
     while ($row = $result->fetch_assoc()) {
     $nombre= $row["nombre"];
@@ -29,10 +24,11 @@ if ($result->num_rows > 0) {
     $direccion= $row["direccion"];
     $tlf= $row["tlf"];
     $correo= $row["correo"];
+    $clienteId= $row["id"];
+    
   }
 } else {
 }
-
 $conn->close();
 ?>
 <!DOCTYPE html>
@@ -50,7 +46,9 @@ $conn->close();
   <body>
       <div class="container">
           <div class="py-5 text-center">
-            <h2>No existe el comprador, crear uno nuevo</h2>
+          <?php
+              echo ($nombre=="")?"<h2>No existe el cliente, agregar datos</h2>":"<h2>Datos del cliente</h2>";               
+          ?>
           </div>
           <div class="row">
               <div class="col-md-12 order-md-1">
@@ -61,13 +59,13 @@ $conn->close();
 
             <div class="col-md-6 mb-3">
               <label for="firstName">Nombre</label>
-              <input type="text" class="form-control" name="nombre" id="nombre" placeholder="" readonly="<?php echo $readonly;?>" value="<?php echo $nombre;?>" required="">
+              <input type="text" class="form-control" name="nombre" id="nombre" placeholder="" <?php readonly($nombre)?> value="<?php echo $nombre;?>" required="">
               <div class="invalid-feedback">Primer Nombre necesario
               </div>
             </div>
             <div class="col-md-6 mb-3">
               <label for="lastName">Apellido</label>
-              <input type="text" class="form-control" name="apellido" id="apellido" readonly="<?php echo $readonly;?>" placeholder="" value="<?php echo $apellido;?>" required="">
+              <input type="text" class="form-control" name="apellido" id="apellido" <?php readonly($nombre)?> placeholder="" value="<?php echo $apellido;?>" required="">
               <div class="invalid-feedback">
                 Apellido necesario
               </div>
@@ -79,7 +77,7 @@ $conn->close();
               <div class="input-group-prepend">
                 <span class="input-group-text">V</span>
               </div>
-              <input type="text" class="form-control" name="cedula" id="cedula" placeholder="##.###.###" readonly="<?php echo $readonly;?>" required="" value="<?php echo $req_cedula;?>">
+              <input type="text" class="form-control" name="cedula" id="cedula" placeholder="##.###.###" <?php readonly($nombre)?> required="" value="<?php echo $req_cedula;?>">
               <div class="invalid-feedback" style="width: 100%;">
                 Cedula es requerida.
               </div>
@@ -87,13 +85,13 @@ $conn->close();
           </div>
           <div class="mb-3">
             <label for="email">Correo Electronico</label>
-            <input type="email" class="form-control" id="email"  name="correo" value="<?php echo $correo;?>" readonly="<?php echo $readonly;?>" placeholder="tu@ejemplo.com">
+            <input type="email" class="form-control" id="email"  name="correo" value="<?php echo $correo;?>" <?php readonly($nombre)?> placeholder="tu@ejemplo.com">
             <div class="invalid-feedback">
               Por Favor introduzca un correo electronico correcto</div>
           </div>
           <div class="mb-3">
             <label for="direccion">Direccion</label>
-            <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Casa cual, Calle tal, Avenida cual. " readonly="<?php echo $readonly;?>"
+            <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Casa cual, Calle tal, Avenida cual. " <?php readonly($nombre)?>
               required="" value="<?php echo $direccion;?>"> 
             <div class="invalid-feedback">
               Por favor introduzca la direccion de envio </div>
@@ -101,8 +99,10 @@ $conn->close();
           <div class="mb-3">
             <label for="tlf">Telefono<span class="text-muted">(Opcional)</span></label>
             <input type="text" class="form-control" id="address2" name="tlf" placeholder="Movil o Fijo " value="<?php echo $tlf;?>" 
-             readonly="<?php echo $readonly;?>">
           </div>
+          <input type="text" class="form-control" name="clienteId" placeholder="Cliente ID " value="<?php echo $clienteId;?>" 
+          <?php readonly($nombre)?>>
+
           <hr class="mb-4">
           <button class="btn btn-primary btn-lg btn-block" type="submit">Continuar a Compra</button>
 
@@ -114,3 +114,10 @@ $conn->close();
 
 </html>
           
+<?php
+function readonly($nombre){
+  if(!($nombre=="")){
+      echo 'readonly="readonly"';
+  }
+}
+?>

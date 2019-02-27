@@ -1,7 +1,5 @@
 <table>
 <?php 
-
-
     foreach ($_POST as $key => $value) {
         echo "<tr>";
         echo "<td>";
@@ -13,22 +11,30 @@
         echo "</tr>";
     }
 
-    
-    if(!isset($_POST["tieneCajaEspecial"])){echo "no hay cajta";}
-    else { echo "hay caja";}
-    
-// if(!$_POST["esRegalo"]){echo "no hay regalo";}
-// else { echo "hay regalo";}
+    echo "<tr>";
+    echo    "<td>";
+    echo    "tieneCaja";
+    echo    "</td>";
+    echo    "<td>";
+    echo      bool2('tieneCajaEspecial');
+    echo    "</td>";
+    echo "</tr>";
+  
+    echo "<tr>";
+    echo    "<td>";
+    echo    "esRegalo";
+    echo    "</td>";
+    echo    "<td>";
+    echo      bool2('esRegalo');
+    echo    "</td>";
+    echo "</tr>";
 ?>
 </table>
 
 <?php
 //conectar a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "testdb";
-$conexion = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli("localhost", "root", "", "testdb");
+
 pedidoSql();
 
 
@@ -76,10 +82,10 @@ function pedidoSql(){
     ." );";
 }
 echo '<h1>' . pedidoSql() . '</h1>';
-$resultado = mysqli_query($conexion, pedidoSql());
+$resultado = mysqli_query($conn, pedidoSql());
 
 
-if (!$conexion) {
+if (!$conn) {
   echo "ERROR: Unable to connect to MySQL." . PHP_EOL . '<br>';
   echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL . '<br>';
   echo "Debugging error: " . mysqli_connect_error() . PHP_EOL . '<br>';
@@ -94,5 +100,5 @@ if ($resultado) {
   echo '<h1> Error en la base de datos</h1>';
   echo '<a href="/tortas-eneyluz">Volver</a>';
 }
-mysqli_close($conexion);
+$conn->close();
 ?>
