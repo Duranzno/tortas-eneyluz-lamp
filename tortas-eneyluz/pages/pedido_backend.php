@@ -34,19 +34,26 @@
 <?php
 //conectar a la base de datos
 $conn = new mysqli("localhost", "root", "", "testdb");
+$resultado = $conn->query(insertPedidoSQL());
 
-pedidoSql();
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
 
-
-// echo '<h1>' . $req_nombre . '</h1>';
-// echo '<h1>' . $req_pedido . '</h1>';
-// echo '<h1>' . $_POST['fecha'] . '</h1>';
-// echo '<h1>' . STR_TO_DATE($_POST['fecha'], '%m/%d/%Y') . '</h1>';
-// echo '<h1>' . $usuario . ' ' . $password . ' Resultados </;h1>';
+if ($resultado) {
+  header("Location:/tortas-eneyluz/");
+  die();
+} else {
+  echo '<h1> Error en la base de datos</h1>';
+  echo '<a href="/tortas-eneyluz">Volver</a>';
+}
+$conn->close();
+?>
+<?php
 function bool2($str){
   return (isset($_POST[$str]))?1:0;
 };
-function pedidoSql(){
+function insertPedidoSQL(){
   
   $req_tipo=$_POST['tipo'];
   $req_tamano=$_POST['tamano'];
@@ -58,7 +65,7 @@ function pedidoSql(){
   $req_comentarios=$_POST['comentarios'];
   $req_cliente=1;//$_POST['cliente']
 
-  return "INSERT INTO  pedidos (
+  $str= "INSERT INTO  pedidos (
     tipoId ,
     tamanoId ,
     saborId ,
@@ -77,28 +84,11 @@ function pedidoSql(){
       " . $req_tieneCajaEspecial ." ,
       " . $req_esRegalo ." ,
       " . $req_entrega ." ,
-      " . $req_comentarios ." ,
+      '" . $req_comentarios ."' ,
       " . $req_cliente
     ." );";
-}
-echo '<h1>' . pedidoSql() . '</h1>';
-$resultado = mysqli_query($conn, pedidoSql());
+    echo "<h4>Post Cliente SQL. " . $str . "</h4>";
+    return $str;
 
-
-if (!$conn) {
-  echo "ERROR: Unable to connect to MySQL." . PHP_EOL . '<br>';
-  echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL . '<br>';
-  echo "Debugging error: " . mysqli_connect_error() . PHP_EOL . '<br>';
-  exit;
 }
-
-echo '<h1>' . $filas . ' Resultados </h1>';
-if ($resultado) {
-  header("Location:/tortas-eneyluz/");
-  die();
-} else {
-  echo '<h1> Error en la base de datos</h1>';
-  echo '<a href="/tortas-eneyluz">Volver</a>';
-}
-$conn->close();
 ?>

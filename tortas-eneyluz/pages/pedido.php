@@ -1,37 +1,36 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "testdb";
-$conn = new mysqli($servername, $username, $password, $dbname);
-  // Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $dbname = "testdb";
+// $conn = new mysqli($servername, $username, $password, $dbname);
+//   // Check connection
+// if ($conn->connect_error) {
+//   die("Connection failed: " . $conn->connect_error);
+// }
 
+// $sql = "SELECT *  FROM clientes WHERE cedula=" . $req_cedula;
+// $result = $conn->query($sql);
 
-$sql = "SELECT *  FROM clientes WHERE cedula=" . $req_cedula;
-$result = $conn->query($sql);
+// if ($result->num_rows > 0) {
+//     // output data of each row
+//   $readonly="readonly";
+//     while ($row = $result->fetch_assoc()) {
+//     $nombre= $row["nombre"];
+//     $apellido= $row["apellido"];
+//     $direccion= $row["direccion"];
+//     $tlf= $row["tlf"];
+//     $correo= $row["correo"];
+//   }
+// } else {
+// }
 
-if ($result->num_rows > 0) {
-    // output data of each row
-  $readonly="readonly";
-    while ($row = $result->fetch_assoc()) {
-    $nombre= $row["nombre"];
-    $apellido= $row["apellido"];
-    $direccion= $row["direccion"];
-    $tlf= $row["tlf"];
-    $correo= $row["correo"];
-  }
-} else {
-}
-
-$conn->close();
+// $conn->close();
 ?>
 <!DOCTYPE html>
 <?php
   function genericOptions($col_name){
-  $c = new mysqli("localhost", "root", "", "testdb","","");
+  $c = new mysqli("localhost", "root", "", "testdb");
   if(!$c){die("No se pudo conectar");}
   else{
   $r= $c->query("SELECT id,nombre FROM " . $col_name);
@@ -64,9 +63,7 @@ $conn->close();
       <div class="col-md-12 order-md-1">
           <!-- * Especificaciones del pedido -->
           <h4 class="mb-3">Especificaciones del pedido</h4>
-          <P>Aqui puede definir las caracteristicas de su pedido, fecha y hora de entrega, si es un regalo, etc.<P>
-              
-              
+          <p>Aqui puede definir las caracteristicas de su pedido, fecha y hora de entrega, si es un regalo, etc.<p>             
               <div class="row">
                 <div class="col-md-6 mb-3">
                   <p>Tipo de pedido:
@@ -122,6 +119,14 @@ $conn->close();
                 <div class="col-md-12 mb-12">
                   <p>Comentarios adicionales sobre el pedido:</p>
                   <TEXTAREA class="form-control" NAME="comentarios"></TEXTAREA>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 mb-12">
+                  <p>Id de Usuario</p>
+                  <input class="form-control" NAME="cliente" readonly="readonly" 
+                  value=<?php echo $_POST['cliente'];?>
+                  >
                 </div>
               </div>
               <hr class="mb-4">

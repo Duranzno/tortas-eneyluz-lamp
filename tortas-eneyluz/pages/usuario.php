@@ -10,7 +10,7 @@ $direccion="";
 $tlf="";
 $correo="";
 $readonly="";
-$clienteId="";
+$clienteId="No Generado";
     
 
 $sql = "SELECT *  FROM clientes WHERE cedula=" . $req_cedula;
@@ -98,10 +98,13 @@ $conn->close();
           </div>
           <div class="mb-3">
             <label for="tlf">Telefono<span class="text-muted">(Opcional)</span></label>
-            <input type="text" class="form-control" id="address2" name="tlf" placeholder="Movil o Fijo " value="<?php echo $tlf;?>" 
+            <input type="text" class="form-control" id="address2" name="tlf" placeholder="Movil o Fijo " value="<?php echo $tlf;?>">
           </div>
-          <input type="text" class="form-control" name="clienteId" placeholder="Cliente ID " value="<?php echo $clienteId;?>" 
-          <?php readonly($nombre)?>>
+
+          <div class="mb-3">
+            <label for="tlf">Cliente ID<span class="text-muted">(Opcional)</span></label>
+            <input type="text" class="form-control" name="clienteId" placeholder="Cliente ID " value="<?php echo $clienteId;?>" <?php readonly("siexiste")?>>
+          </div>
 
           <hr class="mb-4">
           <button class="btn btn-primary btn-lg btn-block" type="submit">Continuar a Compra</button>
