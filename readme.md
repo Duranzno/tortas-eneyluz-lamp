@@ -1,7 +1,7 @@
 # Repo para la materia Base de Datos de UNEXPO Electronica 2018-II
 Diseñado para ser usado junto con WAMP (previamente Docker-compose pero se han hecho cambios)
 ---
-
+a
 En el boton de arriba se puede descargar una version zip de todo lo que esta en este repositorio colocar esto en la carpeta C:/wamp/www o donde sea que este instalado wamp de forma de que siempre exista algun directorio www/tortas-eneyluz
 
 ---
